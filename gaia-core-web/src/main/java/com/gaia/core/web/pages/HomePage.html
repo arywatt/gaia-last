@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+ <html
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:wicket="http://wicket.apache.org/"
+      xml:lang="en"
+      lang="en">
+    <head>
+        <title><wicket:message key="page.homepage.title">[Homepage]</wicket:message></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    </head>
+    <body>
+  <wicket:extend>
+            
+    <div class="row content-wrapper">
+        <div id="left-block" class="col-lg-2 col-md-2 col-sm-2 hidden-xs dropdown" >
+            
+          <div wicket:id="left-block-menu" class="left-block-menu" > </div>
+          
+        </div>
+        <div id="main-content"  class="col-lg-5 col-md-5 col-sm-7 col-xs-12" >            
+            <div wicket:id="initPanel" id="initPanel"></div>
+           
+        </div>
+        <div id="right-menu" class="col-lg-5 col-md-2  col-sm-3 hidden-xs " >
+            
+           <div id="map" class="col-lg-5 col-md-12 col-sm-12 col-xs-12"></div>
+          
+            
+
+        </div>
+        <div id="ad-menu" class="col-lg-1 col-md-1 hidden-xs hidden-sm " >
+             
+
+        </div>
+        
+       
+    </div>
+        
+        </wicket:extend>
+    </body>
+</html>

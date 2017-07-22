@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:util="http://www.springframework.org/schema/util"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+          http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+">
+    <context:annotation-config/>
+
+    <!-- business tiers -->
+    <context:component-scan base-package="com.gaia.*.spi" />
+    <context:component-scan base-package="com.gaia.*.dao.impl" />
+    <context:component-scan base-package="com.gaia.*.service.impl" />
+    
+    
+
+    <!-- Spring AOP auto-proxy creation (required to support Shiro annotations) -->
+   <!-- <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/> -->
+    
+   
+   <!-- <context:property-override location="classpath:config.properties"/> -->
+    
+    <bean id="applicationContextHolder"
+        class="com.gaia.entity.utils.SpringApplicationContextHolder"/>
+    
+    <bean id="appProperties"
+            class="com.gaia.module.service.impl.GaiaProperties"/>
+    
+    <!-- DBCP data source -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+      destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost/gaia"/>
+        <property name="username" value="root"/>
+        <property name="password" value="lordofnomercy89"/>
+    </bean>
+
+    <!-- JPA persistence tiers -->
+    <bean id="entityManagerFactory"
+      class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="persistenceUnitName" value="gaiaPU"/>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="databasePlatform"
+                        value="org.hibernate.dialect.MySQL5Dialect"/>
+                <property name="generateDdl" value="false"/>
+                <property name="showSql" value="true"/>
+            </bean>
+        </property>
+        <property name="loadTimeWeaver">
+            <bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver"/>
+        </property>
+    </bean>
+
+    <!-- transactions manager -->
+    <tx:annotation-driven transaction-manager="txManager"/>
+    <bean id="txManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+    <!-- Exceptions translation -->
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+
+    <!-- Persistence annotation -->
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
+
+    <!-- =========================================================
+         Shiro Components
+         ========================================================= -->
+
+   <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>  
+    
+     </bean>
+
+
+    <!-- Shiro's main business-tier object for web-enabled applications
+         (use org.apache.shiro.web.DefaultWebSecurityManager instead when there is no web environment)-->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <!-- Single realm app (realm configured next, below).  If you have multiple realms, use the 'realms'
+      property instead. -->
+        <property name="realm" ref="gaiaRealm"/>
+        <!--<property name="cacheManager">
+            <bean class="org.apache.shiro.cache.ehcache.EhCacheManager"/>
+        </property>-->
+
+    </bean>
+    <!-- Post processor that automatically invokes init() and destroy() methods -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+    
+    
+    <!-- Enable Shiro Annotations for Spring-configured beans.  Only run after -->
+    <!-- the lifecycleBeanProcessor has run: -->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor"/>
+     <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+            <property name="securityManager" ref="securityManager"/>
+    </bean>
+
+    <!-- =========================================================
+         Wicket Application
+         ========================================================= -->
+    <!--<bean id="wicketApplication" class="com.gaia.core.web.ScholarApplication" />-->
+
+</beans>

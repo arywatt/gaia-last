@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence                    http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="gaiaPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <jar-file>lib/gaia-core-service-1.0-SNAPSHOT.jar</jar-file>
+    <jar-file>lib/gaia-security-service-1.0-SNAPSHOT.jar</jar-file>
+    <jar-file>lib/gaia-module-service-1.0-SNAPSHOT.jar</jar-file>
+    <jar-file>lib/gaia-basedata-service-1.0-SNAPSHOT.jar</jar-file>
+    <!--<jar-file>WEB-INF/lib/gaia-common-service-1.0-SNAPSHOT.jar</jar-file>
+        <jar-file>WEB-INF/lib/gaia-evaluation-service-1.0-SNAPSHOT.jar</jar-file>
+      <jar-file>WEB-INF/lib/gaia-poll-service-1.0-SNAPSHOT.jar</jar-file>
+        <jar-file>WEB-INF/lib/gaia-evaluation-config-service-1.0-SNAPSHOT.jar</jar-file>
+        <jar-file>WEB-INF/lib/gaia-constraints-service-1.0-SNAPSHOT.jar</jar-file>
+        <jar-file>WEB-INF/lib/gaia-messaging-service-1.0-SNAPSHOT.jar</jar-file>
+        <jar-file>WEB-INF/lib/gaia-reports-service-1.0-SNAPSHOT.jar</jar-file>-->
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <!--<property name="eclipselink.ddl-generation" value="create-tables"/>-->
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+    </properties>
+  </persistence-unit>
+</persistence>

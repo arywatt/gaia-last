@@ -1,0 +1,24 @@
+<wicket:panel>  
+
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">  
+        <wicket:container wicket:id="left-menu-list" class="panel-primary">
+            
+            <h4 class="panel-header">
+                  <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapse" aria-expanded="false" aria-controls="collapse-{label}">
+                     <wicket:container wicket:id="menu-title">[Menu title]</wicket:container>
+                  </a>
+            </h4>
+           
+            <ul id="collapse" class="list-group " role="tabpanel" aria-labelledby="heading">
+                 <li wicket:id="menu-item-list" class="list-group-item">            
+                      <a wicket:id="menu-item-link"  href="#">
+                          <div class="media">                       
+                              <span class="menuitem-img media-left glyphicon-link"><!--<img src="{icon}" class="img-rounded"/>--></span>
+                              <span wicket:id="menu-item-label" class="menuitem-label media-body ">[menu-item-label]</span>                                                                                      
+                          </div> 
+                      </a>
+                 </li>       
+            </ul>
+        </wicket:container>     
+    </div>    
+</wicket:panel>

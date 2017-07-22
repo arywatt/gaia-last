@@ -1,0 +1,41 @@
+<wicket:panel>
+    <form wicket:id="initPanelForm" id="initPanelForm" class="panel">                                     
+                <div class="panel-header">                    
+                    <ul class="nav nav-pills nav-justified" >                                           
+                      <li>
+                            <input wicket:id="imgPicker" id="imgPicker" multiple="" accept="image/*" type="file" style="display:none" name="imgPicker"/>
+                            <a href="#" role="button" id="imgPickerLink"  >
+                                        <span id="gli" class="glyphicon glyphicon-picture" ></span>
+                            </a>
+                            
+                      </li>
+                      <li><a href="#" role><span class="glyphicon glyphicon-camera"></span></a></li>
+                      <li>
+                            <input id="vidPicker" accept="video/*" type="file" style="display:none"/>
+                            <a href="#" role="button" id="vidPickerLink">
+                                        <span class="glyphicon glyphicon-film" ></span>
+                            </a>
+                           
+                      </li>
+                      <li><a  id="camPickerLink" href="#" role="button"><span class="glyphicon glyphicon-facetime-video"></span></a></li>
+                    </ul>
+                    <span wicket:id="itemContainer" id="itemContainer" style="display:none"></span>
+                   
+                </div>  
+                <div id="viewPanel" style="display:none">           
+                    <div id="mediaZone">
+                        <div class="grid row"></div>
+                    </div>
+                    <textarea wicket:id="littleComment" id="littleComment" class="form-control panel-body" style="display:none" cols="10" rows="1"></textarea>
+                    <div class="panel-header">
+                        <button wicket:id="psubmit" id="psubmit" type="submit" class="btn btn-primary pull-right" >Submit</button>                     
+                        <ul class="nav-pills nav">
+                              <li><a role="button" href="#"><span class="glyphicon glyphicon-user" ></span></a></li>
+                              <li><a role="button" href="#"><span class="glyphicon glyphicon-map-marker"></span></a></li>                     
+                              <li><a role="button" href="#"><span class="glyphicon glyphicon-tag"></span></a></li>
+                              <li><a role="button" id="littleCommentLink" href="#"><span class="glyphicon glyphicon-comment"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+      </form> 
+</wicket:panel>

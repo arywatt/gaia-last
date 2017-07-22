@@ -1,0 +1,39 @@
+
+<wicket:panel>
+    <div class="login-logo">
+        <wicket:link>
+            <img alt="Logo Scholar" src="theme/login-logo.png"/>
+        </wicket:link>
+        <div class="app-name">
+            <wicket:message key="app.displayName">[app name]</wicket:message>
+        </div>
+        <br class="clear"/>
+    </div>
+    <div wicket:id="feedback">[feedback]</div>
+    <form wicket:id="signInForm" action="#">
+        <fieldset>
+            <div class="form-field">
+                <label for="username">
+                    <wicket:message key="label.username">[username]</wicket:message>
+                </label>
+                <input id="username" class="text" type="text" wicket:id="username"/>
+            </div>
+            <div class="form-field">
+                <label for="password">
+                    <wicket:message key="label.password">[password]</wicket:message>
+                </label>
+                <input id="password" class="password" type="password" wicket:id="password"/>
+            </div>
+            <!--<div class="form-field">
+                <label for="locale">
+                    <wicket:message key="label.locale">[locale]</wicket:message>
+                </label>
+                <select id="locale" class="select" wicket:id="locale"/>
+            </div>-->
+            <input type="submit" class="button" value="Connexion"/>
+        </fieldset>
+    </form>
+    <div class="copyright">
+        © 2011 <a href="http://www.ucao-uut.tg">UCAO-UUT</a>. Tout droit réservé.
+    </div>
+</wicket:panel>

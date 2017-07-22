@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
+    <head>
+        <title wicket:id="title"></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <wicket:link>
+            <link rel="stylesheet" type="text/css" href="theme/styles-base.css"/>
+            <link rel="stylesheet" type="text/css" href="theme/styles-login.css"/>
+        </wicket:link>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#username").focus();
+            }
+        </script>
+    </head>
+    <body>
+        <div id="login-form" wicket:id="loginPanel">
+            [login panel]
+        </div>
+        <script type="text/javascript">
+            // <![CDATA[
+            function scholar_focusInput() {
+                var input_username = document.getElementById('username');
+                var input_password = document.getElementById('password');
+                if (input_username.value == '') {
+                    input_username.focus();
+                } else {
+                    input_password.focus();
+                }
+            }
+            window.setTimeout('scholar_focusInput()', 500);
+            // ]]>
+        </script>
+    </body>
+</html>

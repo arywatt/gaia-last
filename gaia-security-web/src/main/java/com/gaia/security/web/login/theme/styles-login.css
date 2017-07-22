@@ -1,0 +1,50 @@
+
+body {
+    background-color:#B4B4B4;
+    text-align:left;
+}
+
+div.login-logo {
+    /*background: transparent url("login-logo.png") no-repeat top left;
+    padding-left: 68px;
+    font-weight: bold;*/
+    font-size: 3em;
+    letter-spacing: -0.05em;
+    margin: 0 0 18px;
+    clear: both;
+}
+div.login-logo img {
+    display: block;
+    float: left;
+}
+div.login-logo .app-name {
+    padding: 30px 6px 0;
+}
+
+#login-form {
+    background-color: #fff;
+    width: 500px;
+    margin: 120px auto;
+    padding: 18px;
+    -moz-box-shadow: 1px 1px 12px #555;
+    -webkit-box-shadow: 1px 1px 12px #555;
+    box-shadow: 1px 1px 12px #555;
+}
+
+#login-form fieldset {
+    border-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#login-form input.text,
+#login-form input.password {
+    width: 200px;
+}
+
+#login-form div.copyright {
+    color:#959A9B;
+    font-size: 0.9em;
+    font-weight:normal;
+    margin: 36px 0 0;
+}

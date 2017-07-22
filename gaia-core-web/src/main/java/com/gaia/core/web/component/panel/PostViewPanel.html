@@ -1,0 +1,49 @@
+<wicket:panel>
+    <div class="panel panel-default post-panel ">  <!-- panel start -->
+            <div class="media post-media">
+                <div class="media-left pull-left">
+                    <img src="" class="img-responsive post-user-img"/>
+                </div>
+               
+                
+                <div class="media-middle">
+                    <span class="caret pull-right post-caret"></span>
+                    <ul>
+                        <li><a>{username}</a></li>
+                        <li>{post-time}</li>
+                        
+                    </ul>
+                </div>
+                
+                
+            </div>
+            <span class="hidden">{id}</span>
+            <span class="divider"></span>
+            <div class="post-content">
+                     {content}
+            </div>
+            <div class="media-object post-content-media">
+                     
+            </div>
+                   
+          
+             
+            <span class="divider"></span>
+            
+             <ul class="nav-pills nav ">
+                      <li><a href="#"><span class="glyphicon glyphicon-thumbs-up" ></span></a></li>
+                      <li><a href="#comment-target-{id}"><span class="glyphicon glyphicon-comment"></span></a></li>
+                      <li><a href="#"><span class="glyphicon glyphicon-share" ></span></a></li>
+                      
+             </ul>
+                   
+            
+        </div><!-- panel end -->
+        <div id="comment-target-id}">
+            
+            
+        </div>
+    
+    
+    
+</wicket:panel>

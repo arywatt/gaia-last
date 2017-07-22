@@ -1,0 +1,90 @@
+
+html {
+    font-size: 100%;
+    height: 100%;
+    width: 100%; 
+}
+
+body {
+    height: 100%;
+    width: 100%; 
+    margin: 0;
+    padding: 0;
+    font: 0.625em/1em Verdana, Geneva, Arial, Helvetica, sans-serif;
+    color: #515354;
+    font-size: 0.8em;
+    background-color: #d3e5fb; /*#cbe0fb;*/
+}
+
+/* links */
+a, a:link, a:hover, a:visited, a:active {
+    color: #ce000c;
+    text-decoration: none;
+}
+a:hover {
+    color: #f00;
+    text-decoration: underline;
+}
+
+/* forms */
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+input, textarea, select {
+    display: block;
+    font-size: 100%;
+    border: 1px solid #C5D6E2;
+    padding: 2px;
+}
+input.button {
+    background-color: #F0F0F0;
+}
+
+.form-field {
+    margin-bottom: 12px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+h1 {
+    font: 1.8em/1em Arial, Helvetica, sans-serif;
+    margin: 12px 0;
+    color: #ce000c;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+h2 {
+    font: 1.7em/1em Arial, Helvetica, sans-serif;
+}
+h3 {
+    font: 1.5em/1em Arial, Helvetica, sans-serif;
+}
+h4 {
+    font: 1.3em/1em Arial, Helvetica, sans-serif;
+}
+
+.clear {
+    clear: both;
+}
+
+/* feedback panels*/
+ul.feedbackPanel {
+    background-color: whitesmoke;
+    border: 1px solid #fbfbfb;
+}
+li.feedbackPanelERROR {
+    color: darkred;
+    list-style-image: url('error.png');
+}
+li.feedbackPanelINFO {
+    color: #000;
+}
+li.feedbackPanelWARN {
+    color: darkorange;
+}
+
+
